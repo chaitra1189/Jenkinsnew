@@ -1,20 +1,20 @@
 pipeline {
   //  agent any
-  options {                                                          #Options defines the behaviour of the job
-      disableConcurrentBuilds()                                      #concurrentbuild=at a time many people click on builds                                
-  timeout(time: 1, unit: 'HOURS')                                #it is the time that if the job not yet completed within that time then it gets kills  itself                                                                                                                                               disableResume()                                               #resume diable means if 1 stage gets stop, next stage shd not get start 
+  options {                                                         
+      disableConcurrentBuilds()                                                                     
+  timeout(time: 1, unit: 'HOURS')                                                                                                                                                                              disableResume()                                               #resume diable means if 1 stage gets stop, next stage shd not get start 
     }
     triggers {
         cron('H */4 * * 1-5')
     }
-    parameters {                                                      #to take the inputs
+    parameters {                                                      
         string(name: 'STRING_VARIABLE', defaultValue: 'TestTrainer', description: 'Who should I say hello to?')
         text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
         booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
-    environment {                                    #doubt
+    environment {                                   
         def name = "my name"
         def pwdv = ""
     }
@@ -88,7 +88,7 @@ pipeline {
     }
     stage('GIt Clone Branch') {
       steps {
-        git branch: 'main', url: 'https://github.com/Arvind9719/hello-world.git'
+        git branch: 'main', url: 'https://github.com/chaitra1189/Jenkinsnew.git'
         dir('MOVE') {
           sh("touch test.txt")
           sh("cat test")
