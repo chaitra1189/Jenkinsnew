@@ -2,7 +2,8 @@ pipeline {
   //  agent any
   options {                                                         
       disableConcurrentBuilds()                                                                     
-  timeout(time: 1, unit: 'HOURS')                                                                                                                                                                              disableResume()                                               #resume diable means if 1 stage gets stop, next stage shd not get start 
+  timeout(time: 1, unit: 'HOURS')                                                                                                                                                                              
+    disableResume()                                                
     }
     triggers {
         cron('H */4 * * 1-5')
